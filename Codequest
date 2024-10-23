@@ -1,0 +1,45 @@
+import sys
+import math
+import string
+
+#Get the first number (the number of lines to read)
+cases = int(sys.stdin.readline().rstrip())
+
+
+#use the variable on the line 6 to read that many lines
+for caseNum in range(cases):
+    line = sys.stdin.readline().rstrip()
+    data = line.split(",") #split into list, divide by commas
+    
+    print(data[0]+"=", end = "") #print out name and =
+    
+    hours = 0
+    minuets = 0
+    
+    for i in range (1, 6):
+        time = data[i].split(":")
+        hours += int(time[0])
+        minutes += int(time[1])
+        
+    #print(hours, minutes)
+        
+    while minutes >=60:
+        minutes -= 60
+        hours += 1
+    #print out statement for hours
+    if hours == 1:
+        print("1 hour", end = "")
+    elif hours > 1:
+        print(hours, "hours", end = "")
+    else:
+        print("0 hours", end = "")
+        
+        
+    #print out minutes
+    if minutes == 1:
+        print("1 minute", end = "")
+    elif minutes >1:
+        print("", end="")
+        print(minutes, "minutes", end = "")
+    print()
+        
